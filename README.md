@@ -14,7 +14,7 @@ This app runs in the browser and features dynamically updated HTML and CSS power
 * Generated password is displayed in an alert or written to the window.
 
 ## Interface  Mockup
-The following image demonstrates the application interface:
 
-![password generator demo](./Assets/03-javascript-homework-demo.png)
+
+![password generator demo](./Assets/images/03-javascript-homework-demo.png)
 
