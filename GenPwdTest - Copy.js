@@ -1,4 +1,6 @@
 var passwordSourceString = '';
+var NewPassword = '';
+var passwordLength = 0;
 
 // FUNCTION buildSourceStr
 // Set up global passwordSourceString for the password generator
@@ -15,10 +17,11 @@ function buildSourceStr() {
   var useUpper = false;
   var useNum = false;
   var useSpecial = false;
+  var selectionMade = false;
 
   // prompt user until at least one character
   // type has been selected
-  var selectionMade = false;
+
   while (!selectionMade) {
     useLower = confirm('Do you want to include lower case letters?');
     useUpper = confirm('Do you want to include UPPER case letters?');
@@ -70,44 +73,39 @@ function getRandomInt(min, max) {
   }
 
 // *****************************************
-// FUNCTION generate Password 
-// Given picks random characters out of
-// global passwordSourceString and
+// FUNCTION generatePwdStr (pwLength, pwSource)
+// Given the length of the desired password and
 // the (global) password soruce string
 // Pick characters at random out of the source
 // string until the password is the right length
 // Returns: password string
 
-function generatePassword() {
+function generatePassword(pwLength, pwSource) {
+  const pwinit = '2short'; // generated password 
+  var pwIndex; //password string index
 
-  // get password length and buid password source string 
-  var pwLength = buildSourceStr();
-
-  // put first letter in password string
-  var ssIndex = [getRandomInt(0, (passwordSourceString.length-1))]
-  var pw = passwordSourceString[ssIndex];
-
-  // add the rest of the password letters
-
-  for (i = 1; i < pwLength; i++) {
-    ssIndex = [getRandomInt(0, (passwordSourceString.length-1))]
-    pw = pw.concat(passwordSourceString[ssIndex]);
-    
-    console.log('ssIndex ' + ssIndex);
-    console.log('pw ' + i + ' is ' + pw);
-   }
+  pw = pwinit.split('');
+  for (i = 0; i < pwLength; i++) {
+    pwIndex = getRandomInt(0, pwLength);
+    pw[i] = pwSource[pwIndex];
+    console.log('pwIndex is ' + pwIndex);
+    console.log('added ' + pwSource[pwIndex]);
+    console.log('pw is ' + pw);
+  }
   return (pw);
 }
 // ***************************************************
 // MAIN PROGRAM
 // ***************************************************
+// call buildSourceStr to build global passwordSourceString 
+// containing characters user has chosen for the password and 
+// return the user selected password length 
 
+var passwordLength = buildSourceStr(passwordSourceString);
 
-// call generatePassword to build a user-specified
-// source-string for the password and then generate
-// a random password from that string
-var Password;
+// call generatePassword to generate the password
+// from the global source string
 for (i = 0; i < 10; i++) { 
-  Password = generatePassword();
-  console.log('new password is ' + Password);
+  NewPassword = generatePassword(passwordLength, passwordSourceString);
+  console.log('new password is ' + NewPassword);
 }
