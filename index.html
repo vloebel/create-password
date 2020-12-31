@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Password Generator</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./Assets/css/style.css" />
   </head>
   <body>
     <div class="wrapper">
@@ -14,21 +14,23 @@
       </header>
       <div class="card">
         <div class="card-header">
-          <h2>Generate a FISH</h2>
+          <h2>Generate a password</h2>
         </div>
+        <!-- ARIA semantics expose extra information to a browser's accessibility API, and do not affect a page's DOM. -->
         <div class="card-body">
           <textarea
-            readonly
-            id="password"
-            placeholder="Your Secure Password"
+          readonly
+          id="password"
+          placeholder="Your Secure Password"
             aria-label="Generated Password"
-          ></textarea>
+            
+          >Password must be between 8-128 characters and contain at least one special character.</textarea>
         </div>
         <div class="card-footer">
           <button id="generate" class="btn">Generate Password</button>
         </div>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script src="./Assets/js/script.js"></script>
   </body>
 </html>

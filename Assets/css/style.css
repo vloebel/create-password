@@ -62,7 +62,7 @@ header {
   content: " ";
   display: block;
   width: 100%;
-  background: #e7e9eb;
+  background: white;
   height: 2px;
 }
 
@@ -117,7 +117,7 @@ button[disabled] {
   resize: none;
   overflow: hidden;
 }
-
+/*adjust button size to screen */
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
