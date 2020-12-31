@@ -1,5 +1,4 @@
 
-
 var passwordSourceString = '';
 
 // FUNCTION buildSourceStr
