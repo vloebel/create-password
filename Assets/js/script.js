@@ -16,7 +16,7 @@ function buildSourceStr() {
   var useUpper = false;
   var useNum = false;
   var useSpecial = false;
-
+  
   // prompt user until at least one character
   // type has been selected
   var selectionMade = false;
@@ -39,7 +39,8 @@ function buildSourceStr() {
   }
   // create a source array of password characters that only
   // includes the types chosen by the user 
-  
+
+  passwordSourceString = '';
   if (useLower) {
     passwordSourceString = passwordSourceString.concat('abcdefghijklmnopqrstuvwxyz');
   }
@@ -52,9 +53,8 @@ function buildSourceStr() {
   if (useSpecial) {
     passwordSourceString = passwordSourceString.concat('\~\`\!\@\#\$\%\^\&\*\(\)\_\-\+\=\{\[\}\]\|\\\:\;\"\'\<\,\>\.\?\/');
   }
-
  
-  // return the desired password length 
+  // return the user-specified password length 
   return (pwdLength);
 }
 // *****************************************
@@ -69,12 +69,10 @@ function getRandomInt(min, max) {
 
 // *****************************************
 // FUNCTION generate Password 
-// Given picks random characters out of
-// global passwordSourceString and
-// the (global) password soruce string
-// Pick characters at random out of the source
-// string until the password is the right length
-// Returns: password string
+// Picks characters at random out of global 
+// passwordSourceString until the user-specified
+// length has been reached
+// RETURNS: password string
 
 function generatePassword() {
 
@@ -90,12 +88,12 @@ function generatePassword() {
   for (i = 1; i < pwLength; i++) {
     ssIndex = [getRandomInt(0, (passwordSourceString.length-1))]
     pw = pw.concat(passwordSourceString[ssIndex]);
-     }
+    }
   return (pw);
 }
 
-
-
+// ************************************
+// Original source js
 // ************************************
 
 // Assignment Code
